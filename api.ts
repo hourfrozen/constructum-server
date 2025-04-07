@@ -4,7 +4,7 @@ import * as fs from "jsr:@std/fs"; // have to get an std to check if something e
 
 const router = express.Router();
 
-const loadIfExists = async (name: string, contents: string) => {
+const _loadIfExists = async (name: string, contents: string) => {
   try {
     return await Deno.readTextFile(name);
   } catch {
@@ -16,10 +16,12 @@ const loadIfExists = async (name: string, contents: string) => {
 if (!fs.existsSync("data")) Deno.mkdirSync("data");
 // const logindata: UserCreds[] = JSON.parse(await loadIfExists("data/login.json", "[]"));
 
-router.post("/register", (_req, res) => {
+router.post("/time", (_req, res) => {
   console.log(Date.now()); // testing
   // req.body;
-  res.send("done");
+  let final = "error"
+  final = Date.now().toString();
+  res.send(final);
 });
 
 router.get("/", (_req, res) => {
