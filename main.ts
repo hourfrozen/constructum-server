@@ -9,10 +9,6 @@ app.get("/", (_req, res) => {
   res.send("not set up");
   // res.sendFile(`../pages/landing.html`);
 });
-app.get("/apiref", (_req, res) => {
-  res.send("not set up");
-  // res.sendFile(`../pages/apiref.html`)
-});
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

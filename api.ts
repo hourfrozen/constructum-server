@@ -1,7 +1,7 @@
 // @deno-types="npm:@types/express@4.17.15"
 import express from "npm:express";
 import * as fs from "jsr:@std/fs"; // have to get an std to check if something exists goddamn
-
+const old = Date.now();
 const router = express.Router();
 
 const _loadIfExists = async (name: string, contents: string) => {
@@ -22,6 +22,14 @@ router.get("/time", (_req, res) => {
   let final = "error"
   final = Date.now().toString();
   res.send(final);
+});
+
+router.get("/uptime", (_req, res) => {
+  console.log(Date.now()); // testing
+  // req.body;
+  let final = 0
+  final = Date.now() - old;
+  res.send(final.toString());
 });
 
 router.get("/", (_req, res) => {
