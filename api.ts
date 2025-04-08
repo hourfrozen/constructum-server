@@ -16,7 +16,7 @@ const _loadIfExists = async (name: string, contents: string) => {
 if (!fs.existsSync("data")) Deno.mkdirSync("data");
 // const logindata: UserCreds[] = JSON.parse(await loadIfExists("data/login.json", "[]"));
 
-router.post("/time", (_req, res) => {
+router.get("/time", (_req, res) => {
   console.log(Date.now()); // testing
   // req.body;
   let final = "error"

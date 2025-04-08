@@ -1,6 +1,6 @@
 // @deno-types="npm:@types/express@4.17.15"
 import express from "npm:express";
-const port = 8000;
+const port = 443; //https
 const app = express();
 import api from "./api.ts";
 
@@ -15,5 +15,5 @@ app.get("/apiref", (_req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server is running on port: ${port}`);
 });
